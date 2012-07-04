@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chatroom</title>
+  <script type="text/javascript"
+    src="/javascripts/jquery.min.js"></script>
+  <!-- Socket.IOのJSファイルをインポートする -->
+  <script src="http://192.168.1.16:3000/socket.io/socket.io.js"></script>
+  <body>
+    <h1>ひみつの管理画面</h1>
+    <input type="button" value="注意する" id="alert" />
+    <input type="button" value="もう怒ったゾウ!!!" id="hoge" />
+  </body>
+  <script type="text/javascript">
+  var socket = io.connect("http://localhost:3000");
+  socket.on("connect");
+
+  $("#alert").click(function(){
+      socket.emit("alert",{});
+  });
+  $("#hoge").click(function(){
+      socket.emit("blackout",{});
+  });
+  </script>
+</html>
