@@ -26,6 +26,7 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/admin', routes.admin);
+app.get('/easel', routes.easel);
 
 var server = http.createServer(app);
 var socketIO = require("socket.io");
@@ -41,7 +42,6 @@ io.sockets.on("connection", function (socket) {
   socket.on("disconnect", function () {
     io.sockets.emit("message", {value:"Connection Lost"});
   });
-
   socket.on("blackout", function() {
     io.sockets.emit("blackout",{});
   });
