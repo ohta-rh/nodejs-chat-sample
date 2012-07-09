@@ -8,10 +8,12 @@
   function Enemy(prop){
     circle = this.initialize();
     circle.graphics.beginFill("#FF0000");
-    circle.graphics.setStrokeStyle(1);
+    circle.graphics.beginFill("black");
+    circle.graphics.setStrokeStyle(2);
     circle.graphics.beginStroke("#0000FF");
-    circle.graphics.drawCircle(3,4,10);
-    circle.alpha = 0.4;
+    circle.graphics.beginStroke("white");
+    circle.graphics.drawCircle(0,0,1);
+    circle.alpha = 0.5;
     circle.graphics.endFill();
     circle.onClick = function(e){
       stg = this.getStage();
