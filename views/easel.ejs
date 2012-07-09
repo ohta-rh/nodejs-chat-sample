@@ -25,7 +25,12 @@ window.onload = function()
 
   for(i=0;i<200;i++){
     e = new Enemy();
-    e.x = Math.random() * canvas.offsetWidth;
+    if(Math.random() > 0.5){
+      e.x = canvas.offsetWidth - 500;
+    }else{
+      e.x = canvas.offsetWidth + 500;
+    }
+
     e.y = Math.random() * canvas.offsetHeight;
     list.push(e);
   }
@@ -59,6 +64,8 @@ function tick(){
 </script>  
 <body style="background-color: black">
   <h2 style="margin-top: 40%;margin-left:40%; position: absolute; color:white;z-index:-1;"> I LOVED YOU </h2>
-  <canvas class="canvasmain" id="canvas" width="1280" height="580"></canvas>
+  <h4 style="margin-top: 90%;margin-left:0; position: absolute; color:white;z-index:-1;"> I'LL SEE YOU IN THE NEXT LIFE.... </h2>
+  <canvas class="canvasmain" id="canvas" width="1280" height="550">
+  </canvas>
 </body>
 </html>
