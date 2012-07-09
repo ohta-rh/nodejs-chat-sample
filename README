@@ -1,1 +1,5 @@
 node.js v0.8.0
+
+node app.js
+
+http://localhost:3000/easel
