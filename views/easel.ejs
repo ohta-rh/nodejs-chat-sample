@@ -19,55 +19,43 @@ var stage;
 var canvas;
 var list = [];
 window.onload = function()
-  {
+{
   canvas = document.getElementById("canvas"); // canvas要素を取得
   stage = new Stage(canvas); // Stageにセットする
-  //この上に色々描画できる
+
   for(i=0;i<2000;i++){
-
-    circle = new Enemy();
-    /*
-    circle.graphics.beginFill("#FF0000");
-    circle.graphics.setStrokeStyle(1);
-    circle.graphics.beginStroke("#0000FF");
-    circle.graphics.drawCircle(3,4,10);
-    circle.alpha = 0.4;
-    circle.graphics.endFill();
-    */
-
-    circle.x = Math.random() * 1280;
-    circle.y = Math.random() * 600;
-    list.push(circle);
+    e = new Enemy();
+    e.x = Math.random() * 1280;
+    e.y = Math.random() * 600;
+    list.push(e);
   }
 
   for(i=0; i<list.length; i++){
     stage.addChild(list[i]);
   }
-    Ticker.addListener(window); // window.tick()を40FPSで呼び出す
-    Ticker.setFPS(60);
-  }
 
-  function tick(){
-    for(i=0; i< list.length; i++){
-      c = list[i];
-      if(Math.random() > 0.5)
-      {
-        c.x += Math.random() * 5;
-	c.y -= Math.random() * 5;
-      }else{
-        c.x -= Math.random() * 5;
-	c.y -= Math.random() * 5;
-      }
-      if(c.y < 0){
-	c.y = 600;
-      }
+  Ticker.addListener(window); // window.tick()を40FPSで呼び出す
+  Ticker.setFPS(60);
+}
+
+function tick(){
+  for(i=0; i< list.length; i++){
+    c = list[i];
+    if(Math.random() > 0.5)
+    {
+       c.x += Math.random() * 5;
+       c.y -= Math.random() * 5;
+    }else{
+      c.x -= Math.random() * 5;
+      c.y -= Math.random() * 5;
     }
-    stage.update();
+    if(c.y < 0){
+      c.y = 600;
+    }
   }
+  stage.update();
+}
 
-  function hoge(e){
-    alert('kimoi');
-  }
 </script>  
 <body style="background-color: '#D3D3D3'">
   <canvas class="canvasmain" id="canvas" width="1200" height="600"></canvas>

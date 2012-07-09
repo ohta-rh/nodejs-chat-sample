@@ -13,12 +13,12 @@
     circle.graphics.drawCircle(3,4,10);
     circle.alpha = 0.4;
     circle.graphics.endFill();
-
     circle.onClick = function(e){
       stg = this.getStage();
-      this.graphics.drawCircle(3,4,30);
+      //TODO:やられアニメーション
       stg.removeChild(this);
     }
+
     return circle;
   }
 
