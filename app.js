@@ -7,6 +7,7 @@ var http = require('http')
   , ejs = require('ejs');
 
 var app = express();
+var request = require('request');
 
 app.configure(function(){
   app.set('port', 3000);
