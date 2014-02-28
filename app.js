@@ -41,9 +41,16 @@ io.sockets.on("connection", function (socket) {
     // 全員に受け取ったメッセージを送る
     io.sockets.emit("message", {value: data.value});
     // 人工知能APIを叩く
-    var ai_msg = 'pong'
-    // 人工知能のメッセージを送る
-    io.sockets.emit("machine_reply", {value: ai_msg});
+    request('http://www.google.com', function (error, response, body) {
+      var ai_msg = '';
+      if (!error && response.statusCode == 200) {
+        ai_msg = response.statusCode;
+      } else {
+        ai_msg = 'error';
+      }
+      // 人工知能のメッセージを送る
+      io.sockets.emit("machine_reply", {value: ai_msg});
+    });
   });
   socket.on("disconnect", function () {
     io.sockets.emit("message", {value:"Connection Lost"});
