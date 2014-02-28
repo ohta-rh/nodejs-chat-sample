@@ -39,8 +39,10 @@ io.sockets.on("connection", function (socket) {
   socket.on("message", function (data) {
     // 全員に受け取ったメッセージを送る
     io.sockets.emit("message", {value: data.value});
+    // 人工知能APIを叩く
+    var ai_msg = 'pong'
     // 人工知能のメッセージを送る
-    io.sockets.emit("machine_reply", {value: "pong"});
+    io.sockets.emit("machine_reply", {value: ai_msg});
   });
   socket.on("disconnect", function () {
     io.sockets.emit("message", {value:"Connection Lost"});
