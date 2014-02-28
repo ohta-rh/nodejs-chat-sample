@@ -15,8 +15,16 @@
     appendMessage(message.value);
     });
 
+  socket.on("machine_reply", function (reply_message) {
+    appendMachineReplry(reply_message.value);
+  });
+
   function appendMessage (message) {
-    $("div#chat-box").append("<div class='msg'>" + message + "</div>");
+    $("div#chat-box").append("<div class='msg'>ユーザー::" + message + "</div>");
+  }
+
+  function appendMachineReplry (reply) {
+    $("div#chat-box").append("<div class='reply'>AI::" + reply + '</div>');
   }
   </script>
 </head>
