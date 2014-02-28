@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Chatroom</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-3.1.1/css/bootstrap.min.css">
   <script type="text/javascript"
     src="/javascripts/jquery.min.js"></script>
   <script src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -29,12 +30,15 @@
   </script>
 </head>
 <body>
-  <div id="main">
-    <h1>Log</h1>
 
-  <!-- the Area of showing message from other users. -->
-  <div id="chat-box"></div>
-  </div>
-</div>
+  <div class="container">
+    <div id="main">
+      <h1>Log</h1>
+      <div id="chat-box"></div>
+    </div>
+
+  </div><!-- /.container -->
+
+<!-- <script src="js/bootstrap.min.js"></script> -->
 </body>
 </html>
