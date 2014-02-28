@@ -21,22 +21,23 @@
   });
 
   function appendMessage (message) {
-    $("div#chat-box").append("<div class='msg'>ユーザー::" + message + "</div>");
+    $("table#chat-box").append("<tr><td style='width: 140px;'>ユーザー</td>" + "<td><div class='msg'>" + message + "</div></td></tr>");
   }
 
   function appendMachineReplry (reply) {
-    $("div#chat-box").append("<div class='reply'>AI::" + reply + '</div>');
+    $("table#chat-box").append("<tr><td style='width: 140px;'>AI</td>" + "<td><div class='reply'>" + reply + "</div></td></tr>");
   }
   </script>
 </head>
 <body>
 
   <div class="container">
-    <div id="main">
-      <h1>Log</h1>
-      <div id="chat-box"></div>
+    <div class="row">
+      <div id="main">
+        <h1>Log</h1>
+        <table id="chat-box" class="table"></table>
+      </div>
     </div>
-
   </div><!-- /.container -->
 
 <!-- <script src="js/bootstrap.min.js"></script> -->
