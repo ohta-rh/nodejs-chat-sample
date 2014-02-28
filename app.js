@@ -4,8 +4,8 @@
 var express = require('express');
 var http = require('http')
   , routes = require('./routes')
-  , ejs = require('ejs') 
-  
+  , ejs = require('ejs');
+
 var app = express();
 
 app.configure(function(){
