@@ -27,6 +27,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/admin', routes.admin);
 app.get('/easel', routes.easel);
+app.get('/log', routes.log);
 
 var server = http.createServer(app);
 var socketIO = require("socket.io");

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chatroom</title>
+  <script type="text/javascript"
+    src="/javascripts/jquery.min.js"></script>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+
+  var socket = io.connect("http://localhost:3000");
+  socket.on("connect");
+
+  socket.on("message", function (message) {
+    appendMessage(message.value);
+    });
+
+  function appendMessage (message) {
+    $("div#chat-box").append("<div class='msg'>" + message + "</div>");
+  }
+  </script>
+</head>
+<body>
+  <div id="main">
+    <h1>Log</h1>
+
+  <!-- the Area of showing message from other users. -->
+  <div id="chat-box"></div>
+  </div>
+</div>
+</body>
+</html>
