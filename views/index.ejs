@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Chatroom</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-3.1.1/css/bootstrap.min.css">
   <script type="text/javascript"
     src="/javascripts/jquery.min.js"></script>
   <script src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -36,22 +37,28 @@
   }
 
   function appendMessage (message) {
-    $("div#chat-box").append("<div class='msg'>" + message + "</div>");
-  }    
+    $("table#chat-box").append("<tr><td style='width: 140px;'>あなた</td>" + "<td><div class='msg'>" + message + "</div></td></tr>");
+  }
   </script>
 </head>
 <body>
-  <div id="main">
-    <h1>sample chat</h1>
-  <form action="" method="post" onsubmit="return false;">
-    <input type="text" name="message" id="message" value="" style="width:200px;"/>
-    <input type="submit" class="button" name="send" id="send" value="送信" onclick="sendMessage();"/>
-  </form>
-  <br>
-   
-  <!-- the Area of showing message from other users. -->
-  <div id="chat-box"></div>
+  <div class="container">
+    <div class="row">
+      <div id="main">
+        <h1>sample chat</h1>
+        <form action="" method="post" onsubmit="return false;">
+          <div class="form-group">
+            <input type="text" class="form-control" name="message" id="message" value="" style="width:200px;"/>
+          </div>
+
+          <input type="submit" class="btn btn-primary" name="send" id="send" value="送信" onclick="sendMessage();"/>
+        </form>
+        <br>
+
+        <!-- the Area of showing message from other users. -->
+        <table id="chat-box" class="table"></table>
+      </div>
+    </div>
   </div>
-</div>
 </body>
 </html>

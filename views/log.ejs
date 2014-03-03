@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chatroom</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-3.1.1/css/bootstrap.min.css">
+  <script type="text/javascript"
+    src="/javascripts/jquery.min.js"></script>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+
+  var socket = io.connect("http://localhost:3000");
+  socket.on("connect");
+
+  socket.on("message", function (message) {
+    appendMessage(message.value);
+    });
+
+  socket.on("machine_reply", function (reply_message) {
+    appendMachineReplry(reply_message.value);
+  });
+
+  function appendMessage (message) {
+    $("table#chat-box").append("<tr><td style='width: 140px;'>ユーザー</td>" + "<td><div class='msg'>" + message + "</div></td></tr>");
+  }
+
+  function appendMachineReplry (reply) {
+    $("table#chat-box").append("<tr><td style='width: 140px;'>AI</td>" + "<td><div class='reply'>" + reply + "</div></td></tr>");
+  }
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div id="main">
+        <h1>Log</h1>
+        <table id="chat-box" class="table"></table>
+      </div>
+    </div>
+  </div><!-- /.container -->
+
+<!-- <script src="js/bootstrap.min.js"></script> -->
+</body>
+</html>
